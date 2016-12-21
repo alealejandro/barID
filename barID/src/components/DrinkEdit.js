@@ -16,14 +16,16 @@ class DrinkEdit extends Component {
   }
 
   onButtonPress() {
-    const { name, price, status, quantity } = this.props;
+    const { name, price, status, quantity, userID, code } = this.props;
 
     this.props.drinkSave({
+      uid: this.props.drink.uid,
       name,
       price,
       status,
-      quantity,
-      uid: this.props.drink.uid
+      quantity: Number(quantity),
+      userID,
+      code
     });
   }
 

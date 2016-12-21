@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   name: '',
   price: 10,
   status: '',
-  quantity: 1
+  quantity: '1'
 };
 
 export default (state = INITIAL_STATE, action) => {

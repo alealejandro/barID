@@ -8,15 +8,15 @@ import DrinkForm from './DrinkForm';
 class DrinkCreate extends Component {
   onButtonPress() {
     const { currentUser } = firebase.auth();
-    const userID = currentUser.uid;
-    const code = Math.floor(Math.random() * 400) + 1;
     const { name, price, status, quantity } = this.props;
+    const userID = currentUser.uid;
+    const code = Math.floor(Math.random() * 1000) + 1;
 
     this.props.drinkCreate({
       name: name || 'Gin | Tonic',
       price: price || 10,
       status: 'IN-PREPARATION',
-      quantity: quantity || 0,
+      quantity: Number(quantity) || 1,
       userID,
       code
     });

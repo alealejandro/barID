@@ -24,19 +24,16 @@ class DrinkForm extends Component {
           </Picker>
         </CardSection>
 
-        <CardSection>
-          <Input
-            label="Price"
-            placeholder="$10.00"
-            value="$10.00"
-          />
+        <CardSection style={styles.containerStyle}>
+          <Text style={styles.pickerTextStyle}>Price</Text>
+          <Text style={styles.inputStyle}>$10</Text>
         </CardSection>
 
         <CardSection>
           <Input
             label="Quantity"
             placeholder="1"
-            value={this.props.quantity}
+            value={this.props.quantity.toString()}
             onChangeText={value => this.props.drinkUpdate({ prop: 'quantity', value })}
           />
         </CardSection>
@@ -49,13 +46,25 @@ const styles = {
   pickerTextStyle: {
     fontSize: 18,
     paddingLeft: 20
+  },
+  inputStyle: {
+    color: '#000',
+    paddingRight: 5,
+    paddingLeft: 70,
+    fontSize: 18,
+    lineHeight: 23,
+    flex: 2
+  },
+  containerStyle: {
+    paddingTop: 10,
+    paddingBottom: 10
   }
 };
 
 const mapStateToProps = (state) => {
-  const { name, price, status, quantity } = state.drinkForm;
+  const { name, quantity } = state.drinkForm;
 
-  return { name, price, status, quantity };
+  return { name, quantity };
 };
 
 export default connect(mapStateToProps, { drinkUpdate })(DrinkForm);
